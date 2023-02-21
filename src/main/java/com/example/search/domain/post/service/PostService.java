@@ -30,8 +30,8 @@ public class PostService {
     return postRepository.save(post);
   }
 
-  public Slice<PostSliceResponseDto> slice(PageRequest pageRequest) {
-    Slice<Post> posts = postRepository.findSliceBy(pageRequest);
+  public Slice<PostSliceResponseDto> slice(String keyword, PageRequest pageRequest) {
+    Slice<Post> posts = postRepository.findByTitleContaining(keyword, pageRequest);
 
     return posts.map(PostSliceResponseDto::toDto);
   }

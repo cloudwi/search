@@ -32,8 +32,8 @@ public class PostController {
 
   @GetMapping
   public Slice<PostSliceResponseDto> findAll(@RequestParam(name = "page") int page,
-  @RequestParam(name = "size") int size) {
+  @RequestParam(name = "size") int size, @RequestParam(name = "keyword") String keyword) {
     PageRequest pageRequest = PageRequest.of(page, size, Sort.by(Direction.DESC, "id"));
-    return postService.slice(pageRequest);
+    return postService.slice(keyword, pageRequest);
   }
 }

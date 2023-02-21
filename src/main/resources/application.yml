@@ -10,11 +10,11 @@ spring:
     url: jdbc:h2:mem:search
     username: sa
     password:
-#
-#  data:
-#    web:
-#      pageable:
-#        one-indexed-parameters: true
+
+  data:
+    web:
+      pageable:
+        one-indexed-parameters: true
 
   jpa:
     hibernate:
@@ -23,7 +23,9 @@ spring:
       hibernate:
         format_sql: true
         use_sql_comments: true
+        default_batch_fetch_size: 500
     show-sql: true
+
 
 logging:
   level:

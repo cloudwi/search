@@ -9,6 +9,6 @@ public record PostSliceResponseDto(
 ) {
 
   public static PostSliceResponseDto toDto(Post post) {
-    return new PostSliceResponseDto(post.getId(), post.getTitle(), post.getMember().getNickName());
+    return new PostSliceResponseDto(post.getId(), post.getTitle(), post.getMember().getNickname());
   }
 }

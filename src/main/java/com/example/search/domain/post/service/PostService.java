@@ -31,8 +31,6 @@ public class PostService {
   }
 
   public Slice<PostSliceResponseDto> slice(String keyword, PageRequest pageRequest) {
-    Slice<Post> posts = postRepository.findByTitleContaining(keyword, pageRequest);
-
-    return posts.map(PostSliceResponseDto::toDto);
+    return postRepository.search(keyword, pageRequest);
   }
 }

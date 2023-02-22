@@ -14,25 +14,25 @@ public class Member {
   @Column(name = "member_id")
   private Long id;
   @Column
-  private String nickName;
+  private String nickname;
 
   protected Member() {
   }
 
-  public Member(String nickName) {
-    this.nickName = nickName;
+  public Member(String nickname) {
+    this.nickname = nickname;
   }
 
-  public Member(Long id, String nickName) {
+  public Member(Long id, String nickname) {
     this.id = id;
-    this.nickName = nickName;
+    this.nickname = nickname;
   }
 
   public Long getId() {
     return id;
   }
 
-  public String getNickName() {
-    return nickName;
+  public String getNickname() {
+    return nickname;
   }
 }

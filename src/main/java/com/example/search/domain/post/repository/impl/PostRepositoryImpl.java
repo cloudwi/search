@@ -33,7 +33,7 @@ public class PostRepositoryImpl extends QuerydslRepositorySupport implements Pos
         .select(post)
         .from(post)
         .join(post.member, member).fetchJoin()
-        .where(post.title.eq(keyword))
+        .where(post.title.contains(keyword).or(post.content.contains(keyword)))
         .offset(pageRequest.getOffset())
         .limit(pageRequest.getPageSize() + LAST_CHECK_NUM)
         .orderBy(post.id.desc())

@@ -21,6 +21,9 @@ public class Post {
   @Column
   private String title;
 
+  @Column
+  private String content;
+
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "member_id")
   private Member member;
@@ -33,12 +36,22 @@ public class Post {
     this.member = member;
   }
 
+  public Post(String title, String content, Member member) {
+    this.title = title;
+    this.content = content;
+    this.member = member;
+  }
+
   public Long getId() {
     return id;
   }
 
   public String getTitle() {
     return title;
+  }
+
+  public String getContent() {
+    return content;
   }
 
   public Member getMember() {
